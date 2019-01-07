@@ -15,5 +15,4 @@ RUN wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
 RUN apk del wget && \
     rm -rf /var/cache/apk/*
 
-WORKDIR /app
-ENTRYPOINT ["/bin/sh"]
+WORKDIR /var/www
