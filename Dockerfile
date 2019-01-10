@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --update php5-cli php5-phar php5-json php5-curl php5-openssl wget git
+RUN apk add --update php5-cli php5-phar php5-json php5-openssl php5-curl wget git openssh util-linux
 RUN ln -s /usr/bin/php5 /bin/php
 RUN wget https://deployer.org/releases/v4.3.4/deployer.phar && \
     mv deployer.phar /usr/local/bin/dep && \
