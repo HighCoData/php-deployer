@@ -1,7 +1,13 @@
 FROM alpine
 
-RUN apk add --update php7-cli php7-phar php7-curl php7-xmlreader php7-json php7-openssl php7-gd php7-xml php7-zip php7-mbstring php7-iconv wget git openssh util-linux
+RUN apk -U upgrade
+RUN apk add --update php7-cli php7-phar php7-curl php7-xmlreader php7-json php7-openssl php7-simplexml php7-xmlwriter php7-ctype php7-gd php7-xml php7-zip php7-mbstring php7-iconv php7-fileinfo php7-tokenizer wget git openssh util-linux
 RUN ln -s /usr/bin/php7 /bin/php
+
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories
+RUN apk add --update php7-pecl-ast
+
+
 RUN wget https://deployer.org/deployer.phar && \
     mv deployer.phar /usr/local/bin/dep && \
     chmod +x /usr/local/bin/dep
