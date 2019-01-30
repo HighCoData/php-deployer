@@ -1,12 +1,12 @@
 FROM alpine
 
-RUN apk add --update php5-cli php5-phar php5-curl php5-xmlreader php5-json php5-openssl php5-gd php5-xml php5-zip wget git openssh util-linux
-RUN ln -s /usr/bin/php5 /bin/php
-RUN wget https://deployer.org/releases/v4.3.4/deployer.phar && \
+RUN apk add --update php7-cli php7-phar php7-curl php7-xmlreader php7-json php7-openssl php7-gd php7-xml php7-zip php7-mbstring php7-iconv wget git openssh util-linux
+RUN ln -s /usr/bin/php7 /bin/php
+RUN wget https://deployer.org/deployer.phar && \
     mv deployer.phar /usr/local/bin/dep && \
     chmod +x /usr/local/bin/dep
 RUN wget https://getcomposer.org/installer -O composer-setup.php && \
-    php5 composer-setup.php && \
+    php7 composer-setup.php && \
     mv composer.phar /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer
 RUN wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
