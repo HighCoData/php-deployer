@@ -1,6 +1,8 @@
 FROM alpine
 
-RUN apk add --update php5-cli php5-phar php5-curl php5-xmlreader php5-json php5-openssl php5-gd php5-xml php5-zip wget git openssh util-linux
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/main" > /etc/apk/repositories && \
+    echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
+RUN apk add php5-cli php5-phar php5-curl php5-xmlreader php5-json php5-openssl php5-gd php5-ctype php5-xml php5-zip wget git openssh util-linux
 RUN ln -s /usr/bin/php5 /bin/php
 RUN wget https://deployer.org/releases/v4.3.4/deployer.phar && \
     mv deployer.phar /usr/local/bin/dep && \
